@@ -1,0 +1,18 @@
+extends layout/auth.pug
+
+block content
+	div(class="login-box")
+		div(class="login-logo")
+			b ProfileME 
+			span Forgot Password
+		div(class="login-box-body")
+			if message
+				div(class='alert alert-danger')
+					p #{message}
+			form(method='POST')
+				div(class="form-group has-feedback")
+					input(type='email' class='form-control' name='email' id='email' placeholder='Email' required)
+					span(class="glyphicon glyphicon-envelope form-control-feedback")
+				div(class="row")
+					div(class="col-xs-12")
+						button(type="submit" class="btn btn-primary btn-block btn-flat") Submit

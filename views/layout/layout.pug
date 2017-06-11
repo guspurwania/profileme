@@ -1,0 +1,90 @@
+doctype html
+head
+title ProfileME
+link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css")
+link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css")
+link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet')
+link(rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css")
+link(rel="stylesheet" href="/adminlte/dist/css/skins/_all-skins.min.css")
+script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+script(src="/adminlte/dist/js/app.min.js") 
+body(class="hold-transition skin-blue-light sidebar-mini")
+div(class="wrapper")
+	header(class="main-header")
+		a(href="/dashboard" class="logo")
+			b Profile
+			span ME
+		nav(class="navbar navbar-static-top" role="navigation")
+			div(class="navbar-custom-menu")
+				ul(class="nav navbar-nav")
+					if loginUser
+						li(class="dropdown user user-menu")
+							a(href="#" class="dropdown-toggle" data-toggle="dropdown")
+								img(class="user-image" alt="User Image" src=data.photo)
+								span(class="hidden-xs") #{data.name}
+							ul(class="dropdown-menu")
+								li(class="user-header")
+									img(class="img-circle" alt="User Image" src=data.photo)
+									p #{data.name} - #{data.position}
+								li(class="user-body")
+									div(class="col-xs-12 text-center")
+										a(href="") #{data.email}
+								li(class="user-footer")
+									div(class="pull-left")
+										a(href="/profile" class="btn btn-default btn-flat") Profile
+									div(class="pull-right")
+										a(href="/logout" class="btn btn-default btn-flat") Sign out
+					else
+						li
+							a(href="/register") Register
+						li
+							a(href="/login") Login
+
+	if loginUser
+		div(class='main-sidebar')
+			div(class='sidebar')
+				div(class='user-panel')
+					div(class="pull-left image")
+						img(class="img-circle" alt="User Image" src=data.photo)
+					div(class="pull-left info")
+						p #{data.name}
+						a(href="")
+							i(class="fa fa-circle text-success") &nbsp;Online
+
+				ul(class="sidebar-menu")
+					li(class="header") HEADER
+					li(class="active")
+						a(href="/dashboard")
+							span Dashboard
+					li
+						a(href="/profile")
+							span Profile
+					li
+						a(href="/educations")
+							span Educations
+					li
+						a(href="/languages")
+							span Languages
+					li
+						a(href="/interests")
+							span Interests
+					li
+						a(href="/experiences")
+							span Experiences
+					li
+						a(href="/projects")
+							span Projects
+					li
+						a(href="/skills")
+							span Skills & Proficiency		
+	block content
+	
+	if loginUser
+		footer(class="main-footer")
+			div(class="pull-right hidden-xs") ProfilME Member Area
+			strong Copyright &copy; 2016 
+				a(href="https://www.dartdev.id/" target="_blank") Digital Artisans 
+			span All rights reserved.
+
+		div(class="control-sidebar-bg")

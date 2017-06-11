@@ -1,0 +1,24 @@
+extends layout/auth.pug
+
+block content
+	div(class="login-box")
+		div(class="login-logo")
+			b ProfileME 
+			span Member Login
+		div(class="login-box-body")
+			p(class="login-box-msg") Sign in to start your session
+			if message
+				div(class='alert alert-danger')
+					p #{message}
+			form(method='POST')
+				div(class="form-group has-feedback")
+					input(type='email' class='form-control' name='email' id='email' placeholder='Email' required)
+					span(class="glyphicon glyphicon-envelope form-control-feedback")
+				div(class="form-group has-feedback")
+					input(type='password' class='form-control' name='password' id='password' placeholder='Password' required)
+					span(class="glyphicon glyphicon-lock form-control-feedback")
+				div(class="row")
+					div(class="col-xs-8")
+						a(href="forgot-password") Forgot Password
+					div(class="col-xs-4")
+						button(type="submit" class="btn btn-primary btn-block btn-flat") Sign In

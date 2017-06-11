@@ -1,0 +1,26 @@
+doctype html
+head
+title ProfileME
+link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css")
+link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css")
+link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet')
+link(rel="stylesheet" href="/adminlte/dist/css/AdminLTE.min.css")
+link(rel="stylesheet" href="/adminlte/dist/css/skins/_all-skins.min.css")
+script(src='https://code.jquery.com/jquery-3.2.1.min.js')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+script(src="/adminlte/dist/js/app.min.js") 
+body(class="hold-transition skin-blue-light sidebar-mini")
+div(class="wrapper")
+	header(class="main-header")
+		a(href="/dashboard" class="logo")
+			b Profile
+			span ME
+		nav(class="navbar navbar-static-top" role="navigation")
+			div(class="navbar-custom-menu")
+				ul(class="nav navbar-nav")
+					li
+						a(href="/register") Register
+					li
+						a(href="/login") Login
+	
+	block content

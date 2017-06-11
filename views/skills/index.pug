@@ -1,0 +1,48 @@
+extends ../layout/layout.pug
+
+block content	
+	div(class='content-wrapper')
+		section(class="content-header")
+			h1 Skills & Proficiency
+				small List Skills & Proficiency
+			ol(class="breadcrumb")
+				li
+					a(href="dashboard")
+						i(class="fa fa-dashboard")
+						span  Dashboard
+				li(class="active")
+					span  List Skills & Proficiency
+		section(class="content")
+			div(class="row")
+				div(class="col-md-12")
+					div(class="box box-primary")
+						div(class="box-header with-border")
+							h3(class="box-title") Skills & Proficiency Listing
+						div(class="box-body")
+							a(href="skills/add" class="btn btn-primary") 
+								i(class="fa fa-plus") 
+								span &nbsp; Add Data
+							br
+							br
+							table(class="table table-striped")
+								thead
+									tr
+										th No
+										th Skill
+										th Value
+										th Action
+								tbody
+									- var i = 1
+									if skills
+										each val, index in skills
+											tr
+												td= i++
+												td= val.skill
+												td= val.value + ' %'
+												td
+													h4
+														a(href= 'skills/edit/' + index)
+															i(class="fa fa-edit")
+														span &nbsp; &nbsp;
+														a(href= 'skills/delete/' + index)
+															i(class="fa fa-trash")

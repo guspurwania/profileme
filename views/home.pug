@@ -1,0 +1,126 @@
+doctype html
+head
+title= profile.name + '- Resume/CV'
+meta(charset="utf-8")
+meta(http-equiv="X-UA-Compatible" content="IE=edge")
+meta(name="viewport" content="width=device-width, initial-scale=1.0")
+meta(name="description" content="Gus Purwania - Resume/CV")
+meta(name="author" content="Xiaoying Riley at 3rd Wave Media")
+link(rel="shortcut icon" href="favicon.ico")
+link(href='https://fonts.googleapis.com/css?family=Roboto:400,500,400italic,300italic,300,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css')
+link(rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css")
+link(rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.css")
+link(id="theme-style" rel="stylesheet" href="/css/styles.css")
+body
+div(class="wrapper")
+	div(class="sidebar-wrapper")
+		div(class="profile-container")
+			img(class="profile" alt="" style="height:200px; width:200px;" src= profile.photo)
+			h1(class="name") #{profile.name}
+			h3(class="tagline") #{profile.position}
+
+		div(class="contact-container container-block")
+			ul(class="list-unstyled contact-list")
+				li(class="email")
+					i(class="fa fa-envelope")
+					a(href="mailto: " + profile.email) #{profile.email}
+				li(class="phone")
+					i(class="fa fa-phone")
+					a(href= "tel: " + profile.phone) #{profile.phone}
+				li(class="website")
+					i(class="fa fa-globe")
+					a(target="_blank" href= 'http://' + profile.website) #{profile.website}
+				li(class="linkedin")
+					i(class="fa fa-linkedin")
+					a(target="_blank" href= 'http://' + profile.linkedin) #{profile.linkedin}
+				li(class="github")
+					i(class="fa fa-github")
+					a(target="_blank" href= 'http://' + profile.github) #{profile.github}
+				li(class="twitter")
+					i(class="fa fa-facebook")
+					a(target="_blank" href= 'http://' + profile.facebook) #{profile.facebook}
+		
+		div(class="education-container container-block")
+			h2(class="container-block-title") Education
+			if profile.educations
+				each education in profile.educations
+					div(class="item")
+						h4(class="degree") #{education.title}
+						h5(class="meta") #{education.institution}
+						div(class="time") #{education.year}
+		
+		div(class="languages-container container-block")
+			h2(class="container-block-title") Languages
+			ul(class="list-unstyled interests-list")
+				if profile.languages
+					each language in profile.languages
+						li #{language.language} 
+							span(class="lang-desc") (#{language.level})
+
+		div(class="interests-container container-block")
+			h2(class="container-block-title") Interests
+			ul(class="list-unstyled interests-list")
+				if profile.interests
+					each interest in profile.interests
+						li #{interest.interest} 
+
+	div(class="main-wrapper")
+		section(class="section summary-section")
+			h2(class="section-title")
+				i(class="fa fa-user")
+				span Career Profile 
+			div(class="summary")
+				p #{profile.career}
+
+		section(class="section experiences-section")
+			h2(class="section-title")
+				i(class="fa fa-briefcase")
+				span Experiences
+			
+			if profile.experiences
+				each experience in profile.experiences
+					div(class="item")
+						div(class="meta")
+							div(class="upper-row")
+								h3(class="job-title") #{experience.position}
+								div(class="time") #{experience.year}
+							div(class="company") #{experience.company}, #{experience.company_address}
+						div(class="detail")
+							p #{experience.description}
+
+		section(class="section projects-section")
+			h2(class="section-title")
+				i(class="fa fa-archive")
+				span Projects
+			div(class="intro")
+				p You can list your side projects or open source libraries in this section. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et ligula in nunc bibendum fringilla a eu lectus.
+			
+			if profile.projects
+				each project in profile.projects
+					div(class="item")
+						span(class="project-title") #{project.project} 
+						span - 
+						span(class="project-tagline") #{project.description}
+
+		section(class="skills-section section")
+			h2(class="section-title")
+				i(class="fa fa-rocket")
+				span Skills &amp; Proficiency
+			div(class="skillset")
+				if profile.skills
+					each skill in profile.skills
+						div(class="item")
+							h3(class="level-title") #{skill.skill}
+							div(class="level-bar")
+								div(class="level-bar-inner" data-level= skill.value + '%')
+
+footer(class="footer")
+	div(class="text-center")
+		small(class="copyright") Designed with 
+			i(class="fa fa-heart") 
+			span  by 
+			a(href="https://www.dartdev.id/profile/guspurwania" target="_blank") Gus Purwania
+
+script(type="text/javascript" src="/plugins/jquery-1.11.3.min.js")
+script(type="text/javascript" src="/plugins/bootstrap/js/bootstrap.min.js")
+script(type="text/javascript" src="/js/main.js")

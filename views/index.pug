@@ -1,0 +1,64 @@
+doctype html
+head
+title ProfileME
+link(rel="shortcut icon" href="/favicon.ico")
+link(href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500' rel='stylesheet' type='text/css')
+link(href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css')
+link(rel="stylesheet" href="/hydrogen/css/animate.css")
+link(rel="stylesheet" href="/hydrogen/css/icomoon.css")
+link(rel="stylesheet" href="/hydrogen/css/magnific-popup.css")
+link(rel="stylesheet" href="/hydrogen/css/salvattore.css")
+link(rel="stylesheet" href="/hydrogen/css/style.css")
+script(src="/hydrogen/js/modernizr-2.6.2.min.js")
+body
+div(id="fh5co-offcanvass")
+	a(href="#" class="fh5co-offcanvass-close js-fh5co-offcanvass-close") Menu  
+		i(class="icon-cross")
+	h1(class="fh5co-logo")
+		a(class="navbar-brand" href="index.html") ProfileMe
+	ul
+		li(class="active")
+			a(href="/") Home
+		li
+			a(href="/login") Login
+		li
+			a(href="/register") Register
+
+header(id="fh5co-header" role="banner")
+	div(class="container")
+		div(class="row")
+			div(class="col-md-12")
+				a(href="#" class="fh5co-menu-btn js-fh5co-menu-btn") Menu 
+					i(class="icon-menu")
+				a(class="navbar-brand" href="/") ProfileME
+
+div(id="fh5co-main")
+	div(class="container")
+		div(class="row")
+			div(id="fh5co-board" data-columns)
+				if profile
+					each data, index in profile
+						div(class="item")
+							div(class="animate-box")
+								a(target="_blank" href="/portfolio/" + index)
+									img(src= data.photo)
+							div(class="fh5co-desc") 
+								h2 #{data.name}
+								span #{data.career}
+
+footer(id="fh5co-footer")
+	div(class="container")
+		div(class="row row-padded")
+			div(class="col-md-12 text-center")
+				p
+					small &copy; Hydrogen Free HTML5 Template. All Rights Reserved.
+					br 
+					small Designed by: FREEHTML5.co | Images by:Pexels
+
+script(src="/hydrogen/js/jquery.min.js")
+script(src="/hydrogen/js/jquery.easing.1.3.js")
+script(src="/hydrogen/js/bootstrap.min.js")
+script(src="/hydrogen/js/jquery.waypoints.min.js")
+script(src="/hydrogen/js/jquery.magnific-popup.min.js")
+script(src="/hydrogen/js/salvattore.min.js")
+script(src="/hydrogen/js/main.js")

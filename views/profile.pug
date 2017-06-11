@@ -1,0 +1,96 @@
+extends layout/layout.pug
+
+block content
+	div(class='content-wrapper')
+		section(class="content-header")
+			h1 Profile
+			ol(class="breadcrumb")
+				li
+					a(href="dashboard")
+						i(class="fa fa-dashboard")
+						span  Dashboard
+				li(class="active")
+					span  Profile
+		section(class="content")
+			div(class="row")
+				div(class="col-md-12")
+					if message
+						div(class='alert alert-danger')
+							p #{message}
+					div(class="nav-tabs-custom")
+						ul(class="nav nav-tabs")
+							li(class="active")
+								a(href="#profile" data-toggle="tab") Profile
+							li
+								a(href="#photo" data-toggle="tab") Display Photo
+							li
+								a(href="#email" data-toggle="tab") Change Email
+							li
+								a(href="#password" data-toggle="tab") Change Password
+						div(class="tab-content")
+							div(class="tab-pane active" id="profile")
+								form(class="form-horizontal" method="POST" action="profile/edit")
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Name
+										div(class="col-sm-9")
+											input(type="text" class="form-control" id="name" name="name" placeholder="Name" value=data.name)
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Position
+										div(class="col-sm-9")
+											input(type="text" class="form-control" id="position" name="position" placeholder="Position" value=data.position)
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Phone
+										div(class="col-sm-9")
+											input(type="text" class="form-control" id="phone" name="phone" placeholder="Phone" value=data.phone)
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Website
+										div(class="col-sm-9")
+											input(type="text" class="form-control" id="website" name="website" placeholder="Website" value=data.website)
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") LinkedIn
+										div(class="col-sm-9")
+											input(type="text" class="form-control" id="linkedin" name="linkedin" placeholder="LinkedIn" value=data.linkedin)
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Github
+										div(class="col-sm-9")
+											input(type="text" class="form-control" id="github" name="github" placeholder="Github" value=data.github)
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Facebook
+										div(class="col-sm-9")
+											input(type="text" class="form-control" id="facebook" name="facebook" placeholder="Facebook" value=data.facebook)
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Career Profile
+										div(class="col-sm-9")
+											textarea(class="form-control" id="career" name="career" placeholder="Career Profile" style="height:100px") #{data.career}
+									div(class="form-group")
+										div(class="col-sm-offset-2 col-sm-10")
+											button(type="submit" class="btn btn-primary") Submit
+							div(class="tab-pane" id="photo")
+								form(class="form-horizontal" method="POST" action="profile/image/edit" enctype="multipart/form-data")
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Photo
+										div(class="col-sm-9")
+											input(type='file' class='form-control' name='displayImage' id='displayImage')
+									div(class="form-group")
+										div(class="col-sm-offset-2 col-sm-10")
+											button(type="submit" class="btn btn-primary") Submit
+							div(class="tab-pane active" id="profile")
+							div(class="tab-pane" id="email")
+								form(class="form-horizontal" method="POST" action="profile/email/edit")
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Email
+										div(class="col-sm-9")
+											input(type="text" class="form-control" id="email" name="email" placeholder="Email" value=data.email)
+									div(class="form-group")
+										div(class="col-sm-offset-2 col-sm-10")
+											button(type="submit" class="btn btn-primary") Submit
+							div(class="tab-pane" id="password")
+								form(class="form-horizontal" method="POST" action="profile/password/edit")
+									div(class="form-group")
+										label(for="inputName" class="col-sm-2 control-label") Password
+										div(class="col-sm-9")
+											input(type="password" class="form-control" id="password" name="password" placeholder="Password")
+									div(class="form-group")
+										div(class="col-sm-offset-2 col-sm-10")
+											button(type="submit" class="btn btn-primary") Submit
+
